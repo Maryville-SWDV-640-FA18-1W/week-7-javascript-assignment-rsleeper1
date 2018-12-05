@@ -1,0 +1,80 @@
+@blue:#002244;
+@red:#C60C30;
+@silver:#B0B7BC;
+@black:#000;
+
+.borderStyle{
+    outline-style: double;
+    outline-width: 10px;
+    outline-color:@red;
+}
+
+header {
+    text-align: center;
+    color:@silver;
+    background-color:@blue;
+
+    h1 {
+        font-size: 60px;
+        font-weight: 500;
+        font-family: 'Luminari', fantasy;
+        .borderStyle
+    }
+}
+h2 {
+    font-size: 36px;
+    font-weight: 500;
+    font-family: 'Luminari', fantasy;  
+    text-align: center;
+    color:@silver;
+    background-color:@blue;
+    .borderStyle 
+}
+
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color:@silver;
+    .row{
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .col{
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 25px;
+        border-width: 10px;
+        border-style: groove;
+        border-color:@red;
+        background-color:@blue;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+
+        a{
+            color:@silver;
+            &:hover{
+                color:@black;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+img.align-content-center {
+    width: 400px;
+    height: 250px;
+    display: block;
+    margin: 0px auto;
+  }
