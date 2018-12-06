@@ -64,22 +64,22 @@ h2 {
   color: #000;
   font-weight: bold;
 }
-.col-3 {
+.col-4 {
   position: relative;
   -ms-flex: 0 0 20%;
   flex: 0 0 20%;
-  max-width: 25%;
+  max-width: 20%;
   padding: 25px;
   border-width: 5px;
   border-style: dashed;
   border-color: #C60C30;
   background-color: #B0B7BC;
 }
-.col-6 {
+.col-8 {
   position: relative;
-  -ms-flex: 0 0 45%;
-  flex: 0 0 45%;
-  max-width: 50%;
+  -ms-flex: 0 0 60%;
+  flex: 0 0 60%;
+  max-width: 60%;
   padding: 25px;
   border-width: 5px;
   border-style: dashed;

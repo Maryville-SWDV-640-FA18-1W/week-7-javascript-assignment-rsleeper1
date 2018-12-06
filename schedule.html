@@ -9,15 +9,43 @@
     <meta name="author" content="">
     <title>New England Patriots Fan Page</title>
     <link href="scheduleStyle.css" rel="stylesheet"/>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="mustache.js"></script>
 </head>
-<body background="field-field-line-football-54567.jpg" onload="divStandings()">
+<body background="field-field-line-football-54567.jpg" onload="teamList()">
     <header><h1>Patriots Schedule</h1></header>
         <h2>2018 Season</h2>
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-4">
                     <h3>AFC East Standings</h3>
+                    <script id="template" type="x-tmpl-mustache">
+                        1. {{teams.team1
+                        }}
+                        2. {{teams.team2
+                        }}
+                        3. {{teams.team3
+                        }}
+                        4. {{teams.team4
+                        }}
+                    </script>
                     <ol id="divStandings"></ol>
+                    <script>
+                        function teamList(){
+                            var template = $('#template').html();
+                            Mustache.parse(template);
+                            var rendered = Mustache.render(template, {
+                                teams: {
+                                    team1: "New England Patriots",
+                                    team2: "Miami Dolphins",
+                                    team3: "Buffalo Bills",
+                                    team4: "New York Jets"
+                                },
+                                show: true                   
+                            })
+                            $('#divStandings').html(rendered);
+                        }
+                    </script>
                     <script>
                         function divStandings(){
                             var team1 = {
@@ -47,15 +75,12 @@
                             })
                             console.log('Standings:');
                             console.log(sortOrder);
-
+                        
                         }
                     </script>
                 </div>
-                <div class="col-6">
+                <div class="col-8">
                     Opponent
-                </div>
-                <div class="col-3">
-                    Division Standings
                 </div>
             </div>
         </div>
