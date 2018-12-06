@@ -41,16 +41,12 @@
                                 divWins: 0,
                             };
                             var intOrder = [team1, team2, team3, team4];
-                            for (var i = 1; i < intOrder.length + 1; i++){
-                                var result = intOrder[i].overallWins - intOrder[i-1].overallWins;
-                                if (result > 0){
-                                    intOrder[i] = intOrder[i-1];
-                                }else{
-                                    intOrder[i] = intOrder[i];
-                                }
-                            }
-                            
-                            console.log(intOrder.name);
+                            var sortOrder = intOrder.slice(0);
+                            sortOrder.sort(function(a,b){
+                                return b.overallWins - a.overallWins;
+                            })
+                            console.log('Standings:');
+                            console.log(sortOrder);
 
                         }
                     </script>
