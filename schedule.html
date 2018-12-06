@@ -10,13 +10,45 @@
     <title>New England Patriots Fan Page</title>
     <link href="scheduleStyle.css" rel="stylesheet"/>
 </head>
-<body background="field-field-line-football-54567.jpg">
+<body background="field-field-line-football-54567.jpg" onload="divStandings()">
     <header><h1>Patriots Schedule</h1></header>
         <h2>2018 Season</h2>
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    AFC Standings
+                    <h3>AFC East Standings</h3>
+                    <ol id="divStandings"></ol>
+                    <script>
+                        function divStandings(){
+                            var team1 = {
+                                name: 'New England Patriots',
+                                overallWins: 9,
+                                divWins: 3, 
+                            };
+                            var team2 = {
+                                name: 'Miami Dolphins',
+                                overallWins: 6,
+                                divWins: 3, 
+                            };
+                            var team3 = {
+                                name: 'Buffalo Bills',
+                                overallWins: 4,
+                                divWins: 1,
+                            };
+                            var team4 = {
+                                name: 'New York Jets',
+                                overallWins: 3,
+                                divWins: 0,
+                            };
+                            var intOrder = [team1, team2, team3, team4];
+                            function sortTeams(a,b){
+                                return b-a;
+                            }
+                            intOrder.overallWins.sort(sortTeams);
+                            console.log(intOrder.name);
+
+                        }
+                    </script>
                 </div>
                 <div class="col-6">
                     Opponent
