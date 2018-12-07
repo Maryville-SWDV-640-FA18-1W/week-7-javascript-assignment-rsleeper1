@@ -12,7 +12,7 @@
     <script src="jquery-3.3.1.min.js"></script>
     <script src="mustache.js"></script>
 </head>
-<body background="field-field-line-football-54567.jpg" onload="teamList()">
+<body background="field-field-line-football-54567.jpg" onload="teamStandings()">
     <header><h1>Patriots Schedule</h1></header>
         <h2>2018 Season</h2>
         <div class="container">
@@ -20,67 +20,168 @@
                 <div class="col-4">
                     <h3>AFC East Standings</h3>
                     <script id="template" type="x-tmpl-mustache">
-                        1. {{teams.team1
-                        }}
-                        2. {{teams.team2
-                        }}
-                        3. {{teams.team3
-                        }}
-                        4. {{teams.team4
-                        }}
+                        <ol>
+                            {{#teams}}
+                                <li>{{name}}: {{record}}</li>
+                            {{/teams}}
+                        </ol> 
                     </script>
                     <ol id="divStandings"></ol>
                     <script>
-                        function teamList(){
+                        function teamStandings(){
                             var template = $('#template').html();
                             Mustache.parse(template);
                             var rendered = Mustache.render(template, {
-                                teams: {
-                                    team1: "New England Patriots",
-                                    team2: "Miami Dolphins",
-                                    team3: "Buffalo Bills",
-                                    team4: "New York Jets"
-                                },
+                                teams: [
+                                    {
+                                        name: "New England Patriots",
+                                        record: "9-3"
+                                    },
+                                    {
+                                        name: "Miami Dolphins",
+                                        record: "6-6"
+                                    },
+                                    {
+                                        name: "Buffalo Bills",
+                                        record: "4-8"
+                                    },
+                                    {
+                                        name: "New York Jets",
+                                        record: "3-9"
+                                    }
+                                    ],
+                                
                                 show: true                   
                             })
                             $('#divStandings').html(rendered);
                         }
                     </script>
-                    <script>
-                        function divStandings(){
-                            var team1 = {
-                                name: 'New England Patriots',
-                                overallWins: 9,
-                                divWins: 3, 
-                            };
-                            var team2 = {
-                                name: 'Miami Dolphins',
-                                overallWins: 6,
-                                divWins: 3, 
-                            };
-                            var team3 = {
-                                name: 'Buffalo Bills',
-                                overallWins: 4,
-                                divWins: 1,
-                            };
-                            var team4 = {
-                                name: 'New York Jets',
-                                overallWins: 3,
-                                divWins: 0,
-                            };
-                            var intOrder = [team1, team2, team3, team4];
-                            var sortOrder = intOrder.slice(0);
-                            sortOrder.sort(function(a,b){
-                                return b.overallWins - a.overallWins;
-                            })
-                            console.log('Standings:');
-                            console.log(sortOrder);
-                        
-                        }
-                    </script>
                 </div>
                 <div class="col-8">
-                    Opponent
+                    <h3>Schedule</h3>
+                    <script id="template2" type="x-tmpl-mustache">
+                        <ol>
+                            {{#games}}
+                                <li>{{opponent}}: {{result}}  Date: {{date}}  Location: {{location}}</li>
+                            {{/games}}
+                        </ol>
+                    </script>
+                    <ol id="schedule"></ol>
+                    <script>
+                        $(document).ready(function(){
+                            var template2 = $('#template2').html();
+                            Mustache.parse(template2);
+                            var rendered2 = Mustache.render(template2, {
+                                games: [
+                                    {
+                                        opponent: "Houston Texans",
+                                        result: "27 - 20  Win",
+                                        date: "9/9",
+                                        location: "Home"
+                                    },
+                                    {
+                                        opponent: "Jacksonville Jaguars",
+                                        result: "20 - 31  Loss",
+                                        date: "9/16",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Detriot Lions",
+                                        result: "10 - 26  Loss",
+                                        date: "9/23",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Miami Dolphins",
+                                        result: "38 - 7  Win",
+                                        date: "9/30",
+                                        location: "Home"
+                                    },
+                                    {
+                                        opponent: "Indianapolis Colts",
+                                        result: "38 - 24  Win",
+                                        date: "10/4",
+                                        location: "Home"
+                                    },
+                                    {
+                                        opponent: "Kansas City Chiefs",
+                                        result: "43 - 40  Win",
+                                        date: "10/14",
+                                        location: "Home"
+                                    },
+                                    {
+                                        opponent: "Chicago Bears",
+                                        result: "38 - 31  Win",
+                                        date: "10/21",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Buffalo Bills",
+                                        result: "25 - 6  Win",
+                                        date: "10/29",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Green Bay Packers",
+                                        result: "31 - 17  Win",
+                                        date: "11/4",
+                                        location: "Home"
+                                    },
+                                    {
+                                        opponent: "Tennessee Titans",
+                                        result: "10 - 34  Loss",
+                                        date: "11/11",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Bye Week",
+                                        result: "N/A",
+                                        date: "11/18",
+                                        location: "N/A"
+                                    },
+                                    {
+                                        opponent: "New York Jets",
+                                        result: "27 - 13  Win",
+                                        date: "11/25",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Minnesota Vikings",
+                                        result: "24 - 10  Win",
+                                        date: "12/2",
+                                        location: "Home"
+                                    },
+                                    {
+                                        opponent: "Miami Dolphins",
+                                        result: "N/A",
+                                        date: "12/9",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Pittsburgh Steelers",
+                                        result: "N/A",
+                                        date: "12/16",
+                                        location: "Away"
+                                    },
+                                    {
+                                        opponent: "Buffalo Bills",
+                                        result: "N/A",
+                                        date: "12/23",
+                                        location: "Home"
+                                    },
+                                    {
+                                        opponent: "New York Jets",
+                                        result: "N/A",
+                                        date: "12/30",
+                                        location: "Home"
+                                    }
+                                    ],
+                                
+                                show: true                   
+                            })
+                            $('#schedule').html(rendered2);
+                        });
+                    </script>
                 </div>
             </div>
         </div>

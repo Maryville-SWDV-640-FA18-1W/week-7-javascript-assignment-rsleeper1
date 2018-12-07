@@ -1,5 +1,9 @@
 html {
   color: #002244;
+  text-align: left;
+}
+ol {
+  text-align: left;
 }
 .borderStyle {
   outline-style: double;
