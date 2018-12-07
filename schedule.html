@@ -20,13 +20,22 @@
                 <div class="col-4">
                     <h3>AFC East Standings</h3>
                     <script id="template" type="x-tmpl-mustache">
-                        <ol>
+                        <table>
+                            <tr>
+                                <th>Place</th>
+                                <th>Team</th>
+                                <th>Record</th>
+                            </tr>
                             {{#teams}}
-                                <li>{{name}}: {{record}}</li>
+                                <tr>
+                                    <td>{{place}}</td>
+                                    <td>{{name}}</td>
+                                    <td>{{record}}</td>
+                                </tr>
                             {{/teams}}
-                        </ol> 
+                        </table> 
                     </script>
-                    <ol id="divStandings"></ol>
+                    <div id="divStandings"></div>
                     <script>
                         function teamStandings(){
                             var template = $('#template').html();
@@ -34,18 +43,22 @@
                             var rendered = Mustache.render(template, {
                                 teams: [
                                     {
+                                        place: "1st",
                                         name: "New England Patriots",
                                         record: "9-3"
                                     },
                                     {
+                                        place: "2nd",
                                         name: "Miami Dolphins",
                                         record: "6-6"
                                     },
                                     {
+                                        place: "3rd",
                                         name: "Buffalo Bills",
                                         record: "4-8"
                                     },
                                     {
+                                        place: "4th",
                                         name: "New York Jets",
                                         record: "3-9"
                                     }
@@ -60,13 +73,28 @@
                 <div class="col-8">
                     <h3>Schedule</h3>
                     <script id="template2" type="x-tmpl-mustache">
-                        <ol>
+                        <table>
+                            <tr>
+                                <th>Week</th>
+                                <th>Opponent</th>
+                                <th>Score</th>
+                                <th>Result</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                            </tr>
                             {{#games}}
-                                <li>{{opponent}}: {{result}}  Date: {{date}}  Location: {{location}}</li>
+                                <tr>
+                                    <td>{{week}}</td>
+                                    <td>{{opponent}}</td>
+                                    <td>{{score}}</td>
+                                    <td>{{result}}</td>
+                                    <td>{{date}}</td>
+                                    <td>{{location}}</td>
+                                </tr>
                             {{/games}}
-                        </ol>
+                        </table>
                     </script>
-                    <ol id="schedule"></ol>
+                    <div id="schedule"></div>
                     <script>
                         $(document).ready(function(){
                             var template2 = $('#template2').html();
@@ -74,103 +102,137 @@
                             var rendered2 = Mustache.render(template2, {
                                 games: [
                                     {
+                                        week: "1",
                                         opponent: "Houston Texans",
-                                        result: "27 - 20  Win",
+                                        score: "27 - 20",
+                                        result: "Win",
                                         date: "9/9",
                                         location: "Home"
                                     },
                                     {
+                                        week: "2",
                                         opponent: "Jacksonville Jaguars",
-                                        result: "20 - 31  Loss",
+                                        score: "20 - 31",
+                                        result: "Loss",
                                         date: "9/16",
                                         location: "Away"
                                     },
                                     {
+                                        week: "3",
                                         opponent: "Detriot Lions",
-                                        result: "10 - 26  Loss",
+                                        score: "10 - 26 ",
+                                        result: "Loss",
                                         date: "9/23",
                                         location: "Away"
                                     },
                                     {
+                                        week: "4",
                                         opponent: "Miami Dolphins",
-                                        result: "38 - 7  Win",
+                                        score: "38 - 7",
+                                        result: "Win",
                                         date: "9/30",
                                         location: "Home"
                                     },
                                     {
+                                        week: "5",
                                         opponent: "Indianapolis Colts",
-                                        result: "38 - 24  Win",
+                                        score: "38 - 24",
+                                        result: "Win",
                                         date: "10/4",
                                         location: "Home"
                                     },
                                     {
+                                        week: "6",
                                         opponent: "Kansas City Chiefs",
-                                        result: "43 - 40  Win",
+                                        score: "43 - 40",
+                                        result: "Win",
                                         date: "10/14",
                                         location: "Home"
                                     },
                                     {
+                                        week: "7",
                                         opponent: "Chicago Bears",
-                                        result: "38 - 31  Win",
+                                        score: "38 - 31",
+                                        result: "Win",
                                         date: "10/21",
                                         location: "Away"
                                     },
                                     {
+                                        week: "8",
                                         opponent: "Buffalo Bills",
-                                        result: "25 - 6  Win",
+                                        score: "25 - 6",
+                                        result: "Win",
                                         date: "10/29",
                                         location: "Away"
                                     },
                                     {
+                                        week: "9",
                                         opponent: "Green Bay Packers",
-                                        result: "31 - 17  Win",
+                                        score: "31 - 17",
+                                        result: "Win",
                                         date: "11/4",
                                         location: "Home"
                                     },
                                     {
+                                        week: "10",
                                         opponent: "Tennessee Titans",
-                                        result: "10 - 34  Loss",
+                                        score: "10 - 34",
+                                        result: "Loss",
                                         date: "11/11",
                                         location: "Away"
                                     },
                                     {
-                                        opponent: "Bye Week",
+                                        week: "11",
+                                        opponent: "Bye",
+                                        score: "N/A",
                                         result: "N/A",
                                         date: "11/18",
                                         location: "N/A"
                                     },
                                     {
+                                        week: "12",
                                         opponent: "New York Jets",
-                                        result: "27 - 13  Win",
+                                        score: "27 - 13",
+                                        result: "Win",
                                         date: "11/25",
                                         location: "Away"
                                     },
                                     {
+                                        week: "13",
                                         opponent: "Minnesota Vikings",
-                                        result: "24 - 10  Win",
+                                        score: "24 - 10",
+                                        result: "Win",
                                         date: "12/2",
                                         location: "Home"
                                     },
                                     {
+                                        week: "14",
                                         opponent: "Miami Dolphins",
+                                        score: "N/A",
                                         result: "N/A",
                                         date: "12/9",
                                         location: "Away"
                                     },
                                     {
+                                        week: "15",
                                         opponent: "Pittsburgh Steelers",
+                                        score: "N/A",
                                         result: "N/A",
                                         date: "12/16",
                                         location: "Away"
                                     },
                                     {
+                                        week: "16",
                                         opponent: "Buffalo Bills",
+                                        score: "N/A",
                                         result: "N/A",
                                         date: "12/23",
                                         location: "Home"
                                     },
                                     {
+                                        week: "17",
                                         opponent: "New York Jets",
+                                        score: "N/A",
                                         result: "N/A",
                                         date: "12/30",
                                         location: "Home"

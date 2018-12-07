@@ -2,8 +2,8 @@ html {
   color: #002244;
   text-align: left;
 }
-ol {
-  text-align: left;
+td {
+  text-align: center;
 }
 .borderStyle {
   outline-style: double;
